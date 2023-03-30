@@ -6,22 +6,22 @@ import Navbar from './components/Navbar';
 import CarritoCompras from './components/CarritoCompras';
 import Login from './components/Login';
 
-const URL_API = "https://pokeapi.co/api/v2/pokemon/";
+const URL_API = "https://api.escuelajs.co/api/v1/products";
 
 function App() {
-const [pokemones, setPokemones] = useState([]);
+const [productos, setProductos] = useState([]);
 
-const getPokemones = async () => {
+const getProductos = async () => {
   try {
   const res = await axios(URL_API);
-  setPokemones(res.data);
+  setProductos(res.data);
 } catch (error) {
     console.log("ERROR: " + error);
 }
 };
 
 useEffect( () => {
-  getPokemones();
+  getProductos();
 }, []);
 
 return (
@@ -31,8 +31,8 @@ return (
       <CarritoCompras icono="https://i.pinimg.com/originals/bf/19/90/bf1990e247292b756ca7926443f00ab6.jpg"/>
        <Login />
 
-       {pokemones.map((pokemon,i) => (
-        <ProductItem pokemon={pokemon} key={pokemon.name}/>
+       {productos.map((producto,i) => (
+        <ProductItem producto={producto} key={producto.name}/>
        ))}
     </div>
     
