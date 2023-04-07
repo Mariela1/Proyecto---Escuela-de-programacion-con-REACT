@@ -1,32 +1,7 @@
 .container {
     display: flex;
     background-color: rgb(251, 251, 169);
-    color: black;
+    color: rgb(255, 255, 20);
     justify-content: space-around;
-&:hover {
-    background-color:black;
-}
-.btn {
-    background-color: black;
-}
-.dropdown is-active {
-    display: flex;
-    flex-direction: column;
-}
-.dropdown-menu{
-    display: flex;
-    flex-direction: column;
-}
-.dropdown-content{
-    display: flex;
-    flex-direction: column;
-}
-.dropdown-item{
-    display: flex;
-    flex-direction: column;
-}
-.dropdown-item is-active{
-    display: flex;
-    flex-direction: column;
-}
+    
 }

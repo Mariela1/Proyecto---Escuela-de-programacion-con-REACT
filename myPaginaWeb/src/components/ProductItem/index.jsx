@@ -1,10 +1,14 @@
-const ProductItem = ({ producto}) => {
+import ProductCard from "../ProductCard";
+
+const ProductItem = ({ productos}) => {
   return (
     <div>
-        <h3>{producto.description}</h3>
-       <img src={producto.images} alt="" height={200} width={200} />
-    
-    </div>
+        
+       {productos.map((producto) => (
+        <ProductCard key={producto.key} producto={producto} />
+        ))}
+</div>
+
   );
 }
 
