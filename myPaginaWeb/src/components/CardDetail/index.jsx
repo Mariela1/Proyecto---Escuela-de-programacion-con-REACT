@@ -34,7 +34,7 @@ const getProducto = async () => {
     return ( 
     <div>
          <h3>{producto.title}</h3>
-        <img src={producto.images} />
+        <img src={producto.images} width="100" height={"100"}/>
         <p>{producto.description}</p> 
         CardDetail
     </div>

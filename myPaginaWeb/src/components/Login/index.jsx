@@ -1,33 +1,42 @@
-import styles from './login.module.scss';
+import { useState } from "react";
+const Login = () => {
+  
+const [input, setInput] = useState("");
 
-const Login = ({form}) => {
+const handleInput = (e) => {
+  setInput(e.target.value);
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log("Formulario Enviado con el valor", input);
+  setInput("");
+};
+
+
+
   return (
-    <div className={styles.form}>
-      <div class="field">
-          <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" placeholder="Email"/>
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" placeholder="Password"/>
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <button class="button is-success">Login</button>
-  </p>
-</div>
-    </div>
+    
+    <form onSubmit={handleSubmit}>
+    
+    <input  
+       type="text" placeholder="Ingrese el texto" 
+       onChange={handleInput}
+       value2={input}
+       />
+
+    <input type="submit" value="Enviar"/>
+
+    <input type="text" placeholder="Ingrese el valor"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+       
+    />
+
+     <h2>{input && "El input posee un valor" }</h2>
+     <input type="submit" value="Enviar"/>
+    </form>
+
   );
 };
 

@@ -1,7 +1,29 @@
 .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
     background-color: rgb(251, 251, 169);
     color: rgb(255, 255, 20);
     justify-content: space-around;
+
     
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 6fr , 6fr;
+    align-items: center;
+    background-color: rgb(251, 251, 169);
+    color: rgb(255, 255, 20);
+    width: 1000px;
+}
+
+.light {
+    background-color:aliceblue;
+    color:#000;
+}
+
+.dark {
+    background-color: #000;
+    color:aliceblue;
 }

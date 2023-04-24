@@ -1,4 +1,4 @@
-[
+const productos = [
     {
     "id": 2,
     "title": "newTitle",
@@ -4533,4 +4533,6 @@
     "updatedAt": "2023-03-30T07:35:18.000Z"
     }
     }
-    ]
+    ];
+
+    export default productos;
