@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import './App.css';
 import ProductItem from "./components/ProductItem";
 import Navbar from './components/Navbar';
@@ -17,6 +17,12 @@ import {collection, getDocs} from "firebase/firestore";
 import ListItems from "./components/ListItems/ListItems";
 import ItemDetail from "./components/ItemDetail/ItemDetail";
 import Form from "./components/Form/Form";
+import { ItemListContainer } from "./components/ItemListContainer";
+import ItemCount from "./components/ItemCount";
+import CartProvider from "./contexts/CartContext";
+import Cart from "./components/Cart";
+import ItemCart from "./components/ItemCart";
+
 
 
 const URL_API = "https://api.escuelajs.co/api/v1/products";
@@ -93,23 +99,35 @@ useEffect(() => {
 return (
   <div>
   <h1>Web de Escuela de Programacion Educativa</h1>   
-      <Navbar />
-       <button onClick={() => alert("Click!")}>Click</button>
+      
+
+   
+
        <TextComponent condition={true} /> 
+
        <Form getItems={getItems} itemsRef={itemsRef} />
+       <CartProvider>
+
+         <React.Fragment>
+            <Navbar />
+         </React.Fragment>
+
        <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/products" element={<ProductItem productos={productos} />} />
           <Route path="/products/:id" element={<CardDetail />} />
           <Route path="/404" element={ <h2>404 Not Found</h2> } />
-          <Route path="/CarritoCompras" element={<CarritoCompras />} />
+          <Route path="/CarritoCompras" element={<Cart  />} />
           <Route path="/Login" element={<Login/>} />
           <Route path="/items" element={<ListItems items={items} deleteItem={deleteItem} updateItem={updateItem}/>} />
-          <Route path="/items/:id" element={<ItemDetail />} />
        </Routes>
 
+       </CartProvider>
+
         <Main />
+       
+
       <Footer />
   </div>
       
